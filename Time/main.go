@@ -15,17 +15,14 @@ func Schedule(date string) time.Time {
 // HasPassed returns whether a date has passed.
 func HasPassed(date string) bool {
 	now := time.Now()
-	const layout = "January 28, 1974 2:02:02"
 
-	passed, _ := time.Parse(layout, date)
-	fmt.Println(passed)
+	passed, _ := time.Parse("January 2, 2006 15:04:05", date)
 	return passed.Before(now)
 }
 
 // IsAfternoonAppointment returns whether a time is in the afternoon.
 func IsAfternoonAppointment(date string) bool {
-	const layout2 = "Thursday, July 25, 2019 13:45:00"
-	ourDate, _ := time.Parse(layout2, date)
+	ourDate, _ := time.Parse("Monday, January 2, 2006 15:04:05", date)
 	hour := ourDate.Hour()
 	if hour >= 12 && hour < 18 {
 		return true
@@ -56,10 +53,10 @@ func AnniversaryDate() time.Time {
 }
 
 func main() {
-	dateString := "7/25/2019 13:45:00"
-	fmt.Println(Schedule(dateString))
+	//dateString := "7/25/2019 13:45:00"
+	//fmt.Println(Schedule(dateString))
 	fmt.Println(HasPassed("December 9, 2112 11:59:59"))
 	fmt.Println(IsAfternoonAppointment("Friday, March 8, 1974 12:02:02"))
-	fmt.Println(Description(dateString))
-	fmt.Println(AnniversaryDate())
+	//fmt.Println(Description(dateString))
+	//fmt.Println(AnniversaryDate())
 }
