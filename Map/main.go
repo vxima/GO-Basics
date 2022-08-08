@@ -34,6 +34,12 @@ func AddItem(bill, units map[string]int, item, unit string) bool {
 		return true
 	}
 }
+
+// RemoveItem removes an item from customer bill.
+func RemoveItem(bill, units map[string]int, item, unit string) bool {
+	panic("Please implement the RemoveItem() function")
+}
+
 func main() {
 	bill := NewBill()
 	fmt.Println(bill)
